@@ -1,0 +1,2 @@
+# sologrupe
+Tinklarascio kurimas
