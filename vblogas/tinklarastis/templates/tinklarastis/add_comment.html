@@ -1,0 +1,20 @@
+{% extends 'tinklarastis/base.html' %}
+{%  block content %}
+<div class="row my-3">
+    <div class="col-md-6 cot-12 mx-md-auto mx-3">
+
+    {% if user.is_authenticated %}
+        <h2>Add comment</h2>
+        <form method="POST" action="{% url 'add_comment' blogpost.pk %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.content.id_for_label }}">Content</label>
+                <textarea class="form-control" id="{{ form.content.id_for_label }}" rows="5" name="{{ form.content.html_name }}">{{ form.content.value|default_if_none:'' }}</textarea>
+            </div>
+            <button class="btn btn-secondary">Add comment</button>
+        </form>
+    {% endif %}
+    </div>
+</div>
+
+{% endblock content %}

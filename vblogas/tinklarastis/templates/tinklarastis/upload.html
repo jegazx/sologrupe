@@ -1,0 +1,16 @@
+{% extends 'tinklarastis/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-3">Create a BlogPost and Upload a Video</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>BlogPost</h3>
+        {{ blogpost_form.as_p }}
+        <h3>Video</h3>
+        {{ video_form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+</div>
+{% endblock %}
+
